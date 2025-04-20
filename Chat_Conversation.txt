@@ -1,0 +1,13 @@
+"what will happen if we have a static class and we create objects from it"
+
+"must the variables of a static class be static too?"
+
+"what are the difference of oop in C# and Java"
+
+"how about the static in them, is it difference"
+
+"give examples that shows the differencace between the static and the instnance and also the differnce between them when we call them"
+
+"what will happen if we have a static class and we create objects from it" (same as the first prompt)
+
+"is it correct that in C# we can create a static class and its members must be static too, and what is the difference in this case with java"
