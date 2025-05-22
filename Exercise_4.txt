@@ -1,0 +1,20 @@
+// Exercise 4
+String generateRandomAlphabet() {
+    String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char[] chars = alphabet.toCharArray();
+    char[] shuffled = new char[26];
+    boolean[] used = new boolean[26];
+
+    int index = 0;
+    while (index < 26) {
+        int randIndex = (int) Math.round(Math.random() * 25);
+        if (!used[randIndex]) {
+            shuffled[index] = chars[randIndex];
+            used[randIndex] = true;
+            index++;
+        }
+    }
+
+    return new String(shuffled);
+}
+
