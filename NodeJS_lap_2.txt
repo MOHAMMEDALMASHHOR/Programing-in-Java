@@ -1,0 +1,124 @@
+
+Task_1
+
+C:\Users\Lenovo>node -v
+v22.12.0
+
+C:\Users\Lenovo>cd Desktop
+
+C:\Users\Lenovo\Desktop>cd Scripting-Languages-and-Web-Application
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application>mkdir NodeJS_lap_2
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application>cd NodeJS_lap_2
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>notepad app.js
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>notepad app.js
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>start app.js
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>run app.js
+'run' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>notepad app.js
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>node app.js
+I'm learning to use Node.js with Mohammed Almashhor!
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>notepad app.js
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>
+
+Task_2:
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>npm init -y
+Wrote to C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2\package.json:
+
+{
+  "name": "nodejs_lap_2",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+
+npm notice
+npm notice New major version of npm available! 10.9.0 -> 11.4.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.1
+npm notice To update run: npm install -g npm@11.4.1
+npm notice
+
+
+Task_3
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>notepad app.js
+and I writed this into it:
+"const http = require('http');  // Load Node.js HTTP module
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200; // OK
+  res.setHeader('Content-Type', 'text/plain');
+  res.end("Hello from Mohammed Almashhor's Node.js server!");
+});
+
+server.listen(3000, '127.0.0.1', () => {
+  console.log("Server running at http://127.0.0.1:3000/");
+});
+"
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>node app.js
+Server running at http://127.0.0.1:3000/
+^C
+
+
+
+Task_4
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>notepad index.html
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>
+and I write this into it:
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My First Node App</title>
+</head>
+<body>
+  <h1>Welcome to My First Node Server!</h1>
+  <p>Created by Mohammed Almashhor</p>
+</body>
+</html>
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>notepad app.js
+and I write this into it:
+const http = require('http');
+const fs = require('fs');
+
+fs.readFile('index.html', (err, html) => {
+  if (err) throw err;
+
+  const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+    res.write(html);
+    res.end();
+  });
+
+  server.listen(3000, '127.0.0.1', () => {
+    console.log("HTML server running at http://127.0.0.1:3000/");
+  });
+});
+
+
+C:\Users\Lenovo\Desktop\Scripting-Languages-and-Web-Application\NodeJS_lap_2>notepad app.js
+
+
+
+
+

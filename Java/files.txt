@@ -1,0 +1,107 @@
+FileInputStream in = null;
+try {
+    in = new FileInputStream("abc.txt");
+    int tmp;
+    while ((tmp = in.read()) != -1) { // Read byte by byte
+        System.out.print((char) tmp); // Print character
+    }
+} catch (FileNotFoundException e) {
+    System.out.println("You made a mistake in the file's name");
+    e.printStackTrace();
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    try {
+        if (in != null) {
+            in.close(); // Close the file
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
+
+byte[] buffer = new byte[10];
+FileInputStream in = null;
+try {
+    in = new FileInputStream("abc.txt");
+    int tmp;
+    while ((tmp = in.read(buffer)) == buffer.length) { // Read in blocks
+        System.out.print(new String(buffer)); // Convert bytes to string
+    }
+    for (int i = tmp; i < buffer.length; i++) {
+        buffer[i] = 0; // Clear unused bytes
+    }
+    System.out.println(new String(buffer));
+} catch (FileNotFoundException e) {
+    System.out.println("You made a mistake in the file's name");
+    e.printStackTrace();
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    try {
+        if (in != null) {
+            in.close(); // Close the file
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
+
+String str = "Writing into file";
+FileOutputStream out = null;
+try {
+    out = new FileOutputStream("abc2.txt");
+    for (int i = 0; i < str.length(); i++) {
+        out.write(str.charAt(i)); // Write each character as a byte
+    }
+} catch (FileNotFoundException e) {
+    System.out.println("You made a mistake in the file's name");
+    e.printStackTrace();
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    try {
+        if (out != null) {
+            out.close(); // Close the file
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
+
+
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter file you want to copy: ");
+String file_src = sc.nextLine();
+System.out.print("Enter the name of destination file: ");
+String file_dsc = sc.nextLine();
+
+FileInputStream in = null;
+FileOutputStream out = null;
+try {
+    in = new FileInputStream(file_src);
+    out = new FileOutputStream(file_dsc);
+    int tmp;
+    while ((tmp = in.read()) != -1) { // Read byte by byte
+        out.write(tmp); // Write byte by byte
+    }
+} catch (FileNotFoundException e) {
+    System.out.println("You made a mistake in the file's name");
+    e.printStackTrace();
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    try {
+        if (in != null) {
+            in.close(); // Close input file
+        }
+        if (out != null) {
+            out.close(); // Close output file
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}

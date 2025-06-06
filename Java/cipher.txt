@@ -1,0 +1,22 @@
+String alphabet = "ABCDEFGHIJKLMNOPRSTUWVXYZ ";
+String message = "MESSAGE TO CODE";
+String cipher="";
+int key =3;
+int tmp;
+for(int i=0; i<message.length();i++)
+{
+ tmp = alphabet.indexOf(message.charAt(i));
+ tmp += key;
+ tmp = tmp%alphabet.length();
+ cipher += alphabet.charAt(tmp);
+}
+String decrypted_message ="";
+System.out.println("decrypted_message =" +cipher);
+for(int i=0; i<cipher.length();i++)
+{
+ tmp = alphabet.indexOf(cipher.charAt(i));
+ tmp -= key;
+ tmp = (tmp+alphabet.length())%alphabet.length();
+ decrypted_message += alphabet.charAt(tmp);
+}
+System.out.println("decrypted_message =" +decrypted_message);

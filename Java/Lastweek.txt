@@ -1,0 +1,83 @@
+ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        ArrayList<String> lista = new ArrayList<>();
+        System.out.println("Button 1---------------------------------");
+        lista.add("abc1");
+        lista.add("abc2");
+        lista.add("abc3");
+        System.out.println("Printing list data:");
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i));
+        }
+    }
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        ArrayList<Integer> tab = new ArrayList<>();
+        System.out.println("Button 2---------------------------------");
+
+        // Add elements to the ArrayList
+        for (int i = 0; i < 95; i++) {
+            tab.add(i % 5);
+        }
+
+        // Print initial list
+        System.out.println("Initial list:");
+        for (int value : tab) {
+            System.out.println(value);
+        }
+
+        // Remove every 5th element
+        for (int i = tab.size() - 1; i >= 0; i -= 5) {
+            tab.remove(i);
+        }
+
+        // Print modified list
+        System.out.println("After removing every 5th element:");
+        for (int value : tab) {
+            System.out.println(value);
+        }
+    }
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("Button 3---------------------------------");
+
+        // Create and populate a HashMap
+        HashMap<String, Float> map = new HashMap<>();
+        map.put("A", 1.0f);
+        map.put("B", 2.0f);
+        map.put("C", 3.0f);
+        map.put("D", 4.0f);
+        map.put("E", 5.0f);
+        map.put("F", 6.0f);
+        map.put("H", 7.0f);
+        map.put("I", 8.0f);
+        map.put("J", 9.0f);
+        map.put("K", 10.0f);
+
+        // Iterate over the HashMap and print key-value pairs
+        Iterator<String> it = map.keySet().iterator();
+        while (it.hasNext()) {
+            String key = it.next();
+            Float value = map.get(key);
+            System.out.println(key + " : " + value);
+        }
+    }
+
+    /**
+     * Main method to run the application.
+     */
+    public static void main(String args[]) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        java.awt.EventQueue.invokeLater(() -> {
+            new NewJFrame().setVisible(true);
+        });
+    }

@@ -1,0 +1,187 @@
+//Exercise 6
+
+
+
+public class CountDigits {
+
+    public static void main(String[] args) {
+
+        String passwd = "jdj8ns4k1ok";
+
+        int count = 0;
+
+
+
+        for (int i = 0; i < passwd.length(); i++) {
+
+            if (Character.isDigit(passwd.charAt(i))) {
+
+                count++;
+
+            }
+
+        }
+
+
+
+        System.out.println("Number of digits: " + count);
+
+    }
+
+}
+
+//Exercise 7
+
+
+
+
+
+public class PiMonteCarlo {
+
+    public static void main(String[] args) {
+
+        int total = 1000000;
+
+        int insideCircle = 0;
+
+
+
+        for (int i = 0; i < total; i++) {
+
+            double x = Math.random();
+
+            double y = Math.random();
+
+
+
+            if (Math.sqrt(x * x + y * y) <= 1) {
+
+                insideCircle++;
+
+            }
+
+        }
+
+
+
+        double pi = (4.0 * insideCircle) / total;
+
+        System.out.println("Estimated π = " + pi);
+
+    }
+
+}
+
+// Exercise 4
+String generateRandomAlphabet() {
+    String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char[] chars = alphabet.toCharArray();
+    char[] shuffled = new char[26];
+    boolean[] used = new boolean[26];
+
+    int index = 0;
+    while (index < 26) {
+        int randIndex = (int) Math.round(Math.random() * 25);
+        if (!used[randIndex]) {
+            shuffled[index] = chars[randIndex];
+            used[randIndex] = true;
+            index++;
+        }
+    }
+
+    return new String(shuffled);
+}
+
+
+ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+         String login = jTextField1.getText();
+        String pass = new String(jPasswordField1.getPassword());
+
+        // Check minimum 5 characters
+        if (login.length() < 5 || pass.length() < 5) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Login and password must be at least 5 characters.");
+            return;
+        }
+
+        // Check for at least 3 digits in password
+        int digitCount = 0;
+        for (int i = 0; i < pass.length(); i++) {
+            if (Character.isDigit(pass.charAt(i))) {
+                digitCount++;
+            }
+        }
+
+        if (digitCount < 3) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Password must contain at least 3 digits.");
+            return;
+        }
+
+        // Save registered values
+        registeredLogin = login;
+        registeredPassword = pass;
+
+        // Show registration success and switch to login panel
+        javax.swing.JOptionPane.showMessageDialog(this, "Registration successful!");
+
+        jPanel1.setVisible(false);
+        jPanel2.setVisible(true);
+    }                                        
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        String login = jTextField2.getText();
+        String pass = new String(jPasswordField2.getPassword());
+
+        if (login.equals(registeredLogin) && pass.equals(registeredPassword)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Login successful!");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Login failed. Try again.");
+        }
+    
+    }              
+
+///Iheritanceaaaaa
+
+public class cycle extends Vehicule{
+    public String a;
+
+    public cycle(String manufacturer,String a) {
+        super(manufacturer);
+        this.a=a;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+"cycle{" + "a=" + a + '}';
+    }
+    
+    
+}
+Vehicule vehicule1 = new Vehicule("Audi");
+    SpaceVehicule spaceVehicule1 = new SpaceVehicule("RP-1+ LOX", "NASA");
+    Rocket rocket1 = new Rocket("3034 kN", "RP-1+ LOX", "ArianeSpace");
+
+
+for (int i = 0; i < vehiculeTable.size(); i++) {
+        System.out.println(vehiculeTable.get(i).toString());
+    }
+     
+
+////Number of digits
+
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String text = jTextField1.getText();
+    int digitCount = 0;
+    
+    for (int i = 0; i < text.length(); i++) {
+        if (Character.isDigit(text.charAt(i))) {
+            digitCount++;
+        }
+    }
+    
+    javax.swing.JOptionPane.showMessageDialog(this, "Number of digits: " + digitCount);
+                   
+

@@ -1,0 +1,143 @@
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+    
+    Vehicule vehicule1 = new Vehicule("Audi");
+    SpaceVehicule spaceVehicule1 = new SpaceVehicule("RP-1+ LOX", "NASA");
+    Rocket rocket1 = new Rocket("3034 kN", "RP-1+ LOX", "ArianeSpace");
+
+   
+    LandVehicule landVehicule1 = new LandVehicule("Steel", "Ford");
+    LandVehiculeWithEngine landVehiculeWithEngine1 = new LandVehiculeWithEngine("500 HP", "Aluminum", "Toyota");
+    WheeledVehicule wheeledVehicule1 = new WheeledVehicule("4", "300 HP", "Carbon Fiber", "BMW");
+    Car car1 = new Car("ABC123", "4", "250 HP", "Fiberglass", "Honda");
+    TrackedVehicule trackedVehicule1 = new TrackedVehicule("10 mm", "1000 HP", "Titanium", "Caterpillar");
+    Tank tank1 = new Tank("15 mm","2000 HP", "1500 HP", "Composite", "Leclerc");
+    LandVehiculeWithoutEngine landVehiculeWithoutEngine1 = new LandVehiculeWithoutEngine("Wind", "Wood", "Hobie");
+    Sailboat sailboat1 = new Sailboat("50 sqm", "Wind", "Fiberglass", "Beneteau");
+
+    
+    ArrayList<Vehicule> vehiculeTable = new ArrayList<Vehicule>(0);;
+
+ 
+    vehiculeTable.add(vehicule1);
+    vehiculeTable.add(spaceVehicule1);
+    vehiculeTable.add(rocket1);
+    vehiculeTable.add(landVehicule1);
+    vehiculeTable.add(landVehiculeWithEngine1);
+    vehiculeTable.add(wheeledVehicule1);
+    vehiculeTable.add(car1);
+    vehiculeTable.add(trackedVehicule1);
+    vehiculeTable.add(tank1);
+    vehiculeTable.add(landVehiculeWithoutEngine1);
+    vehiculeTable.add(sailboat1);
+
+    
+    for (int i = 0; i < vehiculeTable.size(); i++) {
+        System.out.println(vehiculeTable.get(i).toString());
+    }
+        
+    }                                        
+
+
+public class LandVehicule extends Vehicule {
+    public String frame_material;
+
+    public LandVehicule(String frame_material, String manufacturer) {
+        super(manufacturer);
+        this.frame_material = frame_material;
+    }
+
+    
+    public String toString() {
+        return super.toString() + ", frame material is " + frame_material;
+    }
+}
+
+public class LandVehiculeWithEngine extends LandVehicule {
+    public String horsepower;
+
+    public LandVehiculeWithEngine(String horsepower, String frame_material, String manufacturer) {
+        super(frame_material, manufacturer);
+        this.horsepower = horsepower;
+    }
+
+    
+    public String toString() {
+        return super.toString() + ", horsepower is " + horsepower;
+    }
+}
+
+
+public class Sailboat extends LandVehiculeWithoutEngine {
+    public String sail_surface;
+
+    public Sailboat(String sail_surface, String power_source, String frame_material, String manufacturer) {
+        super(power_source, frame_material, manufacturer);
+        this.sail_surface = sail_surface;
+    }
+
+
+    public String toString() {
+        return super.toString() + ", sail surface is " + sail_surface;
+    }
+}
+
+public class TrackedVehicule extends LandVehiculeWithEngine {
+    public String horsepower_2;
+
+    public TrackedVehicule(String horsepower_2, String horsepower, String frame_material, String manufacturer) {
+        super(horsepower, frame_material, manufacturer);
+        this.horsepower_2 = horsepower_2;
+    }
+
+    
+    public String toString() {
+        return super.toString() + ", armour thickness is " + horsepower_2;
+    }
+}
+
+public class WheeledVehicule extends LandVehiculeWithEngine {
+    public String wheel_number;
+
+    public WheeledVehicule(String wheel_number, String horsepower, String frame_material, String manufacturer) {
+        super(horsepower, frame_material, manufacturer);
+        this.wheel_number = wheel_number;
+    }
+
+    
+    public String toString() {
+        return super.toString() + ", wheel number is " + wheel_number;
+    }
+}
+
+public class Tank extends TrackedVehicule {
+    public String armour_thickness;
+    public Tank(String armour_thickness, String horsepower_2, String horsepower, String frame_material, String manufacturer) {
+        super(horsepower_2, horsepower, frame_material, manufacturer);
+        this.armour_thickness=armour_thickness;
+    }
+
+    
+    public String toString() {
+        return super.toString() +"With aromur thickness: " + armour_thickness;
+    }
+}
+
+public class Car extends WheeledVehicule {
+    public String registration_number;
+
+    public Car(String registration_number, String wheel_number, String horsepower, String frame_material, String manufacturer) {
+        super(wheel_number, horsepower, frame_material, manufacturer);
+        this.registration_number = registration_number;
+    }
+
+    
+    public String toString() {
+        return super.toString() + ", registration number is " + registration_number;
+    }
+}
+
+
+
+
+
